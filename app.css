@@ -1,0 +1,4 @@
+
+body { padding-top: 70px; }
+.card { box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+#schedule-grid .day-card { min-height: 80px; border: 1px dashed #ddd; padding: 8px; border-radius: 4px; }
