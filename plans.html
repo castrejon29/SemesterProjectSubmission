@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>GymPlanner — Plans</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/app.css"/>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">GymPlanner</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" id="link-home" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" id="link-library" href="library.html">Library</a></li>
+        <li class="nav-item"><a class="nav-link" id="link-admin" href="admin.html">Admin</a></li>
+        <li class="nav-item"><a class="nav-link" id="auth-link" href="#">Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container py-5">
+  <h2>Your Plans</h2>
+  <div id="user-info" class="mb-3"></div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <form id="create-plan-form">
+        <div class="mb-3">
+          <label for="plan-title" class="form-label">Plan title</label>
+          <input id="plan-title" class="form-control" required/>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Add exercise to a day</label>
+          <div class="row g-2">
+            <div class="col-md-3">
+              <select id="exerciseSelect" class="form-select"></select>
+            </div>
+            <div class="col-md-2">
+              <select id="daySelect" class="form-select">
+                <option value="monday">Monday</option><option value="tuesday">Tuesday</option><option value="wednesday">Wednesday</option>
+                <option value="thursday">Thursday</option><option value="friday">Friday</option><option value="saturday">Saturday</option><option value="sunday">Sunday</option>
+              </select>
+            </div>
+            <div class="col-md-2"><input id="sets" class="form-control" placeholder="Sets" type="number" min="1" value="3"/></div>
+            <div class="col-md-2"><input id="reps" class="form-control" placeholder="Reps" type="text" value="8-12"/></div>
+            <div class="col-md-3"><button class="btn btn-secondary" id="addToDayBtn" type="button">Add to schedule</button></div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <div id="schedule-grid" class="row"></div>
+        </div>
+
+        <button class="btn btn-primary" id="save-plan" type="submit">Save Plan</button>
+      </form>
+    </div>
+  </div>
+
+  <h3>Saved Plans</h3>
+  <div id="plans-list"></div>
+</main>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+<script src="js/firestore.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
